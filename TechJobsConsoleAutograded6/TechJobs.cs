@@ -64,7 +64,7 @@ namespace TechJobsConsoleAutograded6
                     // Fetch results
                     if (columnChoice.Equals("all"))
                     {
-                        Console.WriteLine("Search all fields not yet implemented.");
+                        JobData.FindByValue(searchTerm);
                     }
                     else
                     {
@@ -138,12 +138,12 @@ namespace TechJobsConsoleAutograded6
             foreach(Dictionary<string, string> job in someJobs)
             {
                 Console.WriteLine(
-                    $"\n*****\n" +
-                    $"position type: {job["position type"]}\n" +
-                    $"name: {job["name"]}\n" +
-                    $"employer: {job["employer"]}\n" +
-                    $"location: {job["location"]}\n" +
-                    $"core competency: {job["core competency"]}\n" +
+                    $"{Environment.NewLine}*****{Environment.NewLine}" +
+                    $"name: {job["name"]}{Environment.NewLine}" +
+                    $"employer: {job["employer"]}{Environment.NewLine}" +
+                    $"location: {job["location"]}{Environment.NewLine}" +
+                    $"position type: {job["position type"]}{Environment.NewLine}" +
+                    $"core competency: {job["core competency"]}{Environment.NewLine}" +
                     $"*****");
             }
         }
