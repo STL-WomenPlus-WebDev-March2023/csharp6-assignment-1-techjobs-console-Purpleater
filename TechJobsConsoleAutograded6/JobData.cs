@@ -47,34 +47,24 @@ namespace TechJobsConsoleAutograded6
             // load data, if not already loaded
             LoadData();
 
-
+            List<Dictionary<string, string>> matchingJobs = new List<Dictionary<string, string>>();
             foreach (Dictionary<string, string> job in AllJobs)
             {
-                List<Dictionary<string, string>> alreadyPrintedList = new List<Dictionary<string, string>>();
+                
                 //Console.WriteLine($"Searching {job["name"]}");
                 foreach(string key in job.Keys)
                 {
                     //Console.WriteLine(job[key]);
-                    if(job[key].ToLower().Contains(value.ToLower()) && !alreadyPrintedList.Contains(job))
+                    if(job[key].ToLower().Contains(value.ToLower()) && !matchingJobs.Contains(job))
                     {
-
-                        alreadyPrintedList.Add(job);
-                        Console.WriteLine(
-                        $"\n*****\n" +
-                        $"name: {job["name"]}\n" +
-                        $"employer: {job["employer"]}\n" +
-                        $"location: {job["location"]}\n" +
-                        $"position type: {job["position type"]}\n" +
-                        $"core competency: {job["core competency"]}\n" +
-                        $"*****");
+                        matchingJobs.Add(job);
                     }
                 }
 
 
             }
 
-        
-            return null;
+            return matchingJobs;
         }
 
         /**
@@ -97,7 +87,7 @@ namespace TechJobsConsoleAutograded6
 
 
                 //TODO: Make search case-insensitive
-                if (aValue.Contains(value))
+                if (aValue.ToLower().Contains(value.ToLower()))
                 {
                     jobs.Add(row);
                 }
